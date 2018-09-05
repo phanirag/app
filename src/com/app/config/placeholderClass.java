@@ -17,5 +17,7 @@ public class placeholderClass {
         ppc.setLocation(new ClassPathResource("spring.properties"));
         ppc.setIgnoreUnresolvablePlaceholders(true);
         return ppc;
+        
+        
     }
 }
