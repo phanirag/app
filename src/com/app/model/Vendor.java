@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="ventab")
@@ -16,20 +19,30 @@ public class Vendor {
 	@SequenceGenerator(name="ven",sequenceName="Ven_seq")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="ven") //Ven_seq - starts with 3500000
 	private int venId;
+	
+	@NotEmpty(message="Vendor Code cannot be empty")
 	@Column(name="vencode")
 	private String venCode;
+	
+	@Size(min=2,max=20,message="Please Enter UserName(2-20)")
 	@Column(name="venname")
 	private String venName;
+	
 	@Column(name="ventype")
 	private String venType;
 	
+	@NotEmpty(message="Vendor Address Cannot be Empty")
 	@Column(name="venaddr")
 	private String venAddr;
+	
 	@Column(name="idtype")
 	private String idType;
+	
+	@NotEmpty(message="Id Number Cannot be null")
 	@Column(name="idnum")
 	private String idNum;
 	
+	@NotEmpty(message="enter dsc")
 	@Column(name="dsc")
 	private String dsc;
 	

@@ -3,10 +3,12 @@ package com.app.controller;
 import java.util.List;
 
 import javax.servlet.ServletContext;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,13 +30,19 @@ public class LocationController {
 	
 	//1. To show Register Page
 	@RequestMapping("/regLoc")
-	public String showPage(){
+	public String showPage(ModelMap model){
+		model.addAttribute("location",new Location());
 		return "LocationReg";
 	}
 	//2. to save data in DB
 	@RequestMapping(value="/insertLoc",method=RequestMethod.POST)
-	public String saveLocation(@ModelAttribute("location")Location loc,ModelMap map){
-		int locId=service.saveLocation(loc);
+	public String saveLocation(@Valid @ModelAttribute("location")Location location,BindingResult r,ModelMap map){
+		
+		if(r.hasErrors()){
+			return "LocationReg";
+		}
+		
+		int locId=service.saveLocation(location);
 		String message="Location saved with id:"+locId;
 		map.addAttribute("msg",message);
 		return "LocationReg";

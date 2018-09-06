@@ -3,10 +3,12 @@ package com.app.controller;
 import java.util.List;
 
 import javax.servlet.ServletContext;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,12 +43,18 @@ public class CustomerController {
 	private ServletContext context;
 	
 	@RequestMapping("/regCust")
-	public String showPage(){
+	public String showPage(ModelMap model){
+		model.addAttribute("customer", new Customer());
 		return "CustomerReg";
 	}
 	
 	@RequestMapping(value="/insertcust",method=RequestMethod.POST)
-	public String saveCustomer(@ModelAttribute("customer")Customer cust,ModelMap map){
+	public String saveCustomer(@Valid @ModelAttribute("customer") Customer customer,BindingResult r,ModelMap map){
+		
+		if(r.hasErrors()){
+			return "CustomerReg";
+		}
+		
 		//generating pwd and token
 		String pwd=cUtil.generatePwd();
 		String token=cUtil.generateToken();
@@ -56,21 +64,21 @@ public class CustomerController {
 		String etoken=cdUtil.genetareEncode(token);
 		
 		//saving to object
-		cust.setPassword(epwd);
-		cust.setAccToken(etoken);
+		customer.setPassword(epwd);
+		customer.setAccToken(etoken);
 		
 		//sending Email
 		String Subject="This is the test mail";
 		 
-		String text="The Username is:"+cust.getCustName()+
-					"||Email Address:"+cust.getCustEmail()+
+		String text="The Username is:"+customer.getCustName()+
+					"||Email Address:"+customer.getCustEmail()+
 					"||Password for User:="+pwd+
 					"||Token for User:="+token+
-					"||Type of User :"+cust.getCustType();
+					"||Type of User :"+customer.getCustType();
 		
-	boolean flag=comutil.sendmail(cust.getCustEmail(), Subject, text);
+	boolean flag=comutil.sendmail(customer.getCustEmail(), Subject, text);
 		
-		int custid=service.saveCustomer(cust);
+		int custid=service.saveCustomer(customer);
 		String message="Customer Saved With Id"+custid;
 
 		if(flag)

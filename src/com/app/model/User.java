@@ -1,6 +1,17 @@
 package com.app.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="USERS_TAB")
@@ -11,14 +22,23 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="usr") //Usr_seq - starts with 3000000
 	@Column(name="u_Id")
 	private int userId;
+	
+	@Size(min=2,max=20,message="Please Enter UserName(2-20)")
 	@Column(name="u_Name")
 	private String userName;
+	
+	@Email(message="Enter Valid Email")
 	@Column(name="u_Email")
 	private String userEmail;
+
+	@Pattern(regexp="(^$|[0-9]{10})",message="enter valid mobile number")
 	@Column(name="u_Contact")
 	private String userContact;
+	
 	@Column(name="u_Pwd")
 	private String userPwd;
+	
+	@NotEmpty(message="User Address Cannot be Empty")
 	@Column(name="u_Address")
 	private String userAddress;
 	

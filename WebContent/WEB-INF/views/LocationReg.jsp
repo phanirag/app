@@ -1,35 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+         <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<style>
+  .e{
+   color:red;
+   font-size: 18px;
+  }
+</style>
 <title>Location Register Page</title>
 </head>
 <body>
 <%@include file="UserMenu.jsp" %>
 <h1>Welcome to Location Register Page!!</h1>
-<form action="insertLoc" method="post">
+<form:form action="insertLoc" method="POST" modelAttribute="location">
 <table>
 <tr>
-	<td>NAME:</td><td><input type="text" name="locName"/></td>
+	<td>NAME:</td>
+	<td><form:input path="locName" type="text" name="locName"/>
+		<form:errors path="locName" cssClass="e"/>
+	</td>
 </tr>
 <tr>
-	<td>CODE:</td><td><input type="text" name="locCode"/></td>
+	<td>CODE:</td>
+	<td><form:input type="text" path="locCode" name="locCode"/>
+		<form:errors path="locCode" cssClass="e"/>
+	</td>
 </tr>
 <tr>
-	<td>TYPE:</td><td><input type="radio" name="locType" value="Urban"> Urban</td>
+	<td>TYPE:</td>
+	<td><form:radiobutton name="locType" path="locType" value="Urban"/>Urban
+	</td>
 </tr>
 <tr>
-	  <td></td><td><input type="radio" name="locType" value="Rural"> Rural</td>
+	  <td></td><td><form:radiobutton name="locType" value="Rural" path="locType"/> Rural
+	  </td>
 </tr>
 <tr>
-	<td>DESCRIPTION:</td><td><textarea name="locDesc"></textarea></td>
+	<td>DESCRIPTION:</td><td><form:textarea name="locDesc" path="locDesc"></form:textarea>
+							 <form:errors path="locDesc" cssClass="e"/>
+	</td>
 </tr>
 <tr>
 	<td></td><td><input type="submit" value="Create"/></td>
 </tr>       
 </table>
-</form>
+</form:form>
 ${msg}
 <br/></body></html>

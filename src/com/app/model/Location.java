@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
@@ -17,12 +20,19 @@ public class Location {
 	@SequenceGenerator(name="loc",sequenceName="Loc_seq")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="loc") //Loc_seq -starts with  2000000
 	private int locId;
+	
+	@Size(min=2,max=20,message="Please Enter UserName(2-20)")
 	@Column(name="lname")
 	private String locName;
+	
+	@NotEmpty(message="please enter the location code")
 	@Column(name="lcode")
 	private String locCode;
+	
 	@Column(name="ltype")
 	private String locType;
+
+	@NotEmpty(message="Location Description Cannot be Empty")
 	@Column(name="ldsc")
 	private String locDesc;
 	
