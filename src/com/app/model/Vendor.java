@@ -3,7 +3,9 @@ package com.app.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -11,7 +13,8 @@ import javax.persistence.Table;
 public class Vendor {
 	@Id
 	@Column(name="venid")
-	@GeneratedValue
+	@SequenceGenerator(name="ven",sequenceName="Ven_seq")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="ven") //Ven_seq - starts with 3500000
 	private int venId;
 	@Column(name="vencode")
 	private String venCode;

@@ -3,17 +3,18 @@ package com.app.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import org.hibernate.validator.Size;
 
 @Entity
 @Table(name="CUST_TAB")
 public class Customer {
 	@Id
 	@Column(name="cid")
-	@GeneratedValue
+	@SequenceGenerator(name="cust",sequenceName="cust_seq")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="cust") //cust_seq - starts with 500000
 	private int custId;
 	@Column(name="cname")
 	private String custName;

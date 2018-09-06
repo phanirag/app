@@ -5,8 +5,10 @@ import java.util.Arrays;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
@@ -15,7 +17,8 @@ import javax.persistence.Table;
 public class Document {
 	@Id
 	@Column(name="fid")
-	@GeneratedValue
+	@SequenceGenerator(name="doc",sequenceName="Doc_seq")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="doc") //Doc_seq -starts with 1000000
 	private int fileId;
 	@Column(name="fname")
 	private String fileName;
