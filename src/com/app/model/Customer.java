@@ -2,14 +2,18 @@ package com.app.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.validator.Size;
 
 @Entity
 @Table(name="CUST_TAB")
 public class Customer {
 	@Id
 	@Column(name="cid")
+	@GeneratedValue
 	private int custId;
 	@Column(name="cname")
 	private String custName;

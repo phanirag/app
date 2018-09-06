@@ -32,13 +32,12 @@ public class DocumentController {
 	//2. Upload Doc
 	@RequestMapping(value="/uploadDoc",method=RequestMethod.POST)
 	public String uploadDocument(
-			@RequestParam("fileId")int fileId,
 			@RequestParam("fileOb")CommonsMultipartFile cmf)
 	{
 		if(cmf!=null){
 			//create model class obj
 			Document doc=new Document();
-			doc.setFileId(fileId);
+			doc.setFileId(doc.getFileId());
 			doc.setFileName(cmf.getOriginalFilename());
 			doc.setFileData(cmf.getBytes());
 			service.saveDocument(doc);

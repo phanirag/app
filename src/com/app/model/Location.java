@@ -2,6 +2,7 @@ package com.app.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,6 +12,7 @@ import javax.persistence.Table;
 public class Location {
 	@Id
 	@Column(name="lid")
+	@GeneratedValue
 	private int locId;
 	@Column(name="lname")
 	private String locName;

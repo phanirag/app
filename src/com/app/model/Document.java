@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
@@ -14,6 +15,7 @@ import javax.persistence.Table;
 public class Document {
 	@Id
 	@Column(name="fid")
+	@GeneratedValue
 	private int fileId;
 	@Column(name="fname")
 	private String fileName;

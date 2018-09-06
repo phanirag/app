@@ -12,9 +12,6 @@
 <form action="insertcust" method="post">
 <table bgcolor="white">
 <tr>
-	<td>id:</td><td><input type="text" name="custId"/></td>
-</tr>
-<tr>
 	<td>Name:</td><td><input type="text" name="custName"/></td>
 </tr>
 <tr>

@@ -12,14 +12,12 @@
 <form action="insertVen" method="post">
 <table>
 <tr>
-	<td>ID:</td><td><input type="text" name="venId"/></td>
-</tr>
+	<td>NAME:</td><td><input type="text" name="venName"/></td>
+<tr>
 <tr>
 	<td>CODE:</td><td><input type="text" name="venCode"/></td>
 <tr>
-<tr>
-	<td>NAME:</td><td><input type="text" name="venName"/></td>
-<tr>
+
 <tr>
 	<td>TYPE:</td><td><input type="radio" name="venType" value="CONTRACT">CONTRACT</td>
 </tr>

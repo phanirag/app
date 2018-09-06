@@ -12,9 +12,6 @@
 <form action="insertLoc" method="post">
 <table>
 <tr>
-	<td>ID:</td><td><input type="text" name="locId"/></td>
-</tr>
-<tr>
 	<td>NAME:</td><td><input type="text" name="locName"/></td>
 </tr>
 <tr>

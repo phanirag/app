@@ -2,6 +2,7 @@ package com.app.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,8 +11,8 @@ import javax.persistence.Table;
 public class Vendor {
 	@Id
 	@Column(name="venid")
+	@GeneratedValue
 	private int venId;
-	
 	@Column(name="vencode")
 	private String venCode;
 	@Column(name="venname")

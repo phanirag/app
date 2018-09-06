@@ -5,14 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Document</title>
 </head>
 <body>
 <%@include file="UserMenu.jsp" %>
 <h2>welcome to Documents Page!!</h2>
 <form action="uploadDoc" method="post" enctype="multipart/form-data">
   <pre>
-    ID : <input type="text" name="fileId"/>
     DOC: <input type="file" name="fileOb"/>
     <input type="submit" value="Upload"/>
   </pre>

@@ -10,6 +10,7 @@ public class Order {
 
 	@Id
 	@Column(name="oId")
+	@GeneratedValue
 	private int orderId;
 	@Column(name="oCode")
 	private String orderCode;
