@@ -1,7 +1,6 @@
 package com.app.aspect;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
@@ -14,7 +13,7 @@ import org.springframework.util.StopWatch;
 @Aspect
 public class LoggingAspect {
 
-	private Log log=LogFactory.getLog(getClass());
+	private  Logger log=Logger.getLogger(LoggingAspect.class);
 	
 	@Pointcut("execution(public * com.app..*.*(..))")
 	public void p1(){}

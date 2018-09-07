@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -24,9 +25,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.XmlViewResolver;
 
+import com.app.aspect.LoggingAspect;
+
 
 
 @Configuration
+@EnableAspectJAutoProxy(proxyTargetClass=true)
 @EnableWebMvc
 @ComponentScan(basePackages="com.app")
 public class ConfigClass extends WebMvcConfigurerAdapter {
@@ -161,4 +165,11 @@ public class ConfigClass extends WebMvcConfigurerAdapter {
         mailSender.setPassword(password);
         return mailSender;
     }
+    
+    @Bean
+    public LoggingAspect loggingAspect(){
+    	return new LoggingAspect();
+    }
+    
+    	
 }
