@@ -88,7 +88,7 @@ public class UserController {
 			//req.getSession() or req.getSession(true) will create new session
 			//req.getSession(false) will get the existing session
 			ses.setAttribute("userName", user.getUserName().toUpperCase());
-			Page="LocationReg";
+			Page="redirect:regLoc";
 		}
 		return Page;
 	}

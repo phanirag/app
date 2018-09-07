@@ -20,27 +20,27 @@
 <table>
 <tr>
 	<td>NAME:</td>
-	<td><form:input path="locName"/>
+	<td><form:input path="locName" type="text" name="locName"/>
 		<form:errors path="locName" cssClass="e"/>
 	</td>
 </tr>
 <tr>
 	<td>CODE:</td>
-	<td><form:input  path="locCode"/>
+	<td><form:input  path="locCode" type="text" name="locName"/>
 		<form:errors path="locCode" cssClass="e"/>
 	</td>
 </tr>
 <tr>
 	<td>TYPE:</td>
-	<td><form:radiobutton path="locType" value="Urban"/>Urban
+	<td><form:radiobutton path="locType" value="Urban" name="locType"/>Urban
 	</td>
 </tr>
 <tr>
-	  <td></td><td><form:radiobutton value="Rural" path="locType"/> Rural
+	  <td></td><td><form:radiobutton value="Rural" path="locType" name="locType"/> Rural
 	  </td>
 </tr>
 <tr>
-	<td>DESCRIPTION:</td><td><form:textarea path="locDesc"></form:textarea>
+	<td>DESCRIPTION:</td><td><form:textarea path="locDesc" name="locDesc"></form:textarea>
 							 <form:errors path="locDesc" cssClass="e"/>
 	</td>
 </tr>
