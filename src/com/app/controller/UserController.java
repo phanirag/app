@@ -20,13 +20,14 @@ import com.app.util.CommonUtil;
 
 @Controller
 public class UserController {
-
+	
 	@Autowired
 	private IUserService service;
 	@Autowired
 	private CodeUtil codeUtil;
 	@Autowired
 	private CommonUtil commonutil;
+	
 	
 	@RequestMapping(value="/regUser")
 	public String showreg(ModelMap model){

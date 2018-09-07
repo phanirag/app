@@ -26,7 +26,6 @@ public class CustomerUtil {
 		try {
 			ChartUtilities.saveChartAsJPEG(new File(path+"/custpie1.jpg"), chart, 300, 300);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -41,7 +40,6 @@ public class CustomerUtil {
 		try {
 			ChartUtilities.saveChartAsJPEG(new File(path+"/custBar1.jpg"), chart, 300, 300);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
