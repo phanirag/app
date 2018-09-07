@@ -11,7 +11,7 @@
 <a href="mvc/showLogin">
 	<img src="images/starthere.png" width="250" height="250">
 </a>
-<%=new java.util.Date() %>
-<%response.setHeader("Refresh", "1"); %>
+<%-- <%=new java.util.Date() %>
+<%response.setHeader("Refresh", "1"); %> --%>
 </body>
 </html>
