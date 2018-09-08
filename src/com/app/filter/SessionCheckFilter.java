@@ -49,6 +49,9 @@ public class SessionCheckFilter implements Filter{
 		
 		boolean b=uris.contains(uri);
 		
+		fc.doFilter(req, res);
+
+		
 		try {
 			if(!b){
 				HttpSession ses=hreq.getSession(false);
@@ -58,7 +61,6 @@ public class SessionCheckFilter implements Filter{
 			}
 		} catch (Exception e) {
 		}
-		fc.doFilter(req, res);
 		
 	}
 
