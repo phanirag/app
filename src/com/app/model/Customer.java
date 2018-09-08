@@ -9,7 +9,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 
@@ -26,7 +25,7 @@ public class Customer {
 	@Column(name="cname")
 	private String custName;
 	
-	@Email(message="Enter Valid Email")
+	//@NotEmpty(message="Email Cannot be Empty")
 	@Column(name="email")
 	private String custEmail;
 	

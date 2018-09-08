@@ -7,10 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
@@ -27,11 +26,13 @@ public class User {
 	@Column(name="u_Name")
 	private String userName;
 	
-	@Email(message="Enter Valid Email")
+	//@Email(message="Enter Valied Email Address")
+	//@NotEmpty(message="Enter the Email Address")
 	@Column(name="u_Email")
 	private String userEmail;
 
-	@Pattern(regexp="(^$|[0-9]{10})",message="enter valid mobile number")
+	//@Pattern(regexp="(^$|[0-9]{10})",message="enter valid mobile number")
+	@Digits(integer=10,fraction=0,message="Enter Valied Mobile Number")
 	@Column(name="u_Contact")
 	private String userContact;
 	
