@@ -4,6 +4,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style>
+#reg-box {
+	width: 300px;
+	padding: 20px;
+	margin: 40px auto;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border: 1px solid #000;
+}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <style>
 .e {
@@ -14,7 +24,8 @@
 <title>User Register Page</title>
 </head>
 <body onload="onload='document.formu.userEmail.focus()'">
-	<h1>Welcome to User Register Page!!</h1>
+	<h1 align="center">Welcome to User Register Page!!</h1>
+	<div  id="reg-box" align="center">
 	<form:form name="formu" action="insertUser" method="POST"
 		modelAttribute="user" onsubmit="return ValidateEmail()">
 		<table>
@@ -45,6 +56,9 @@
 			</tr>
 		</table>
 	</form:form>
+	${msg} Are you Existing User?
+	<a href="showLogin">click here</a>
+	</div>
 	<script>
 		function ValidateEmail() {
 			var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -57,8 +71,7 @@
 			}
 		}
 	</script>
-	${msg} Are you Existing User?
-	<a href="showLogin">click here</a>
+	
 	<br />
 </body>
 </html>
