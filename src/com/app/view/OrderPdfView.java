@@ -16,7 +16,7 @@ import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 
 
-public class ItemPdfView extends AbstractPdfView {
+public class OrderPdfView extends AbstractPdfView {
 
 	@Override
 	protected void buildPdfDocument(Map<String, Object> map, Document doc,

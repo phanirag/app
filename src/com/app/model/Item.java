@@ -3,6 +3,8 @@ package com.app.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
@@ -19,8 +21,9 @@ public class Item {
 	@Column(name="Cost")
 	private Double itemCost;
 	@JsonIgnore
-	@Column(name="cId")
-	private int custId;
+	@OneToOne
+	@JoinColumn(name="cId")
+	private Customer custId;
 	
 	public Item() {
 		super();
@@ -31,7 +34,7 @@ public class Item {
 	}
 
 	public Item(int itemId, String itemName, Double itemCost,
-			int custId) {
+			Customer custId) {
 		this.itemId = itemId;
 		this.itemName = itemName;
 		this.itemCost = itemCost;
@@ -62,11 +65,11 @@ public class Item {
 		this.itemCost = itemCost;
 	}
 
-	public int getCustId() {
+	public Customer getCustId() {
 		return custId;
 	}
 
-	public void setCustId(int custId) {
+	public void setCustId(Customer custId) {
 		this.custId = custId;
 	}
 

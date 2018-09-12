@@ -12,8 +12,9 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.web.servlet.view.document.AbstractExcelView;
 
 import com.app.model.Item;
+import com.app.model.Order;
 
-public class ItemExeclView extends AbstractExcelView{
+public class OrderExeclView extends AbstractExcelView{
 
 	@Override
 	protected void buildExcelDocument(Map<String, Object> map,
@@ -21,29 +22,31 @@ public class ItemExeclView extends AbstractExcelView{
 			throws Exception {
 		res.addHeader("content-Disposition", "attachment;filename=Item.xls");
 		@SuppressWarnings("unchecked")
-		List<Item> Item=(List<Item>) map.get("Item");
-		HSSFSheet sheet= book.createSheet("Item");
+		List<Order> Order=(List<Order>) map.get("Order");
+		HSSFSheet sheet= book.createSheet("Order");
 		setHead(sheet);
-		setBody(sheet,Item);
+		setBody(sheet,Order);
 	}
 	
 	private void setHead(HSSFSheet sheet){
 	int rownum=0;
 	HSSFRow row=sheet.createRow(rownum);
 	row.createCell(0).setCellValue("ID");
-	row.createCell(1).setCellValue("Name");
+	row.createCell(1).setCellValue("Code");
 	row.createCell(2).setCellValue("Cost");
-	row.createCell(3).setCellValue("CustomerId");
+	row.createCell(3).setCellValue("ItemName");
+	row.createCell(4).setCellValue("CustomerId");
 	}
 	
-	private void setBody(HSSFSheet sheet, List<Item> Item) {
+	private void setBody(HSSFSheet sheet, List<Order> order) {
 		int rownum=1;
-		for(Item I:Item){ 
+		for(Order I:order){ 
 			HSSFRow row=sheet.createRow(rownum++);
-			row.createCell(0).setCellValue(I.getItemId());
-			row.createCell(1).setCellValue(I.getItemName());
-			row.createCell(2).setCellValue(I.getItemCost());
-			row.createCell(3).setCellValue(I.getCustId().getCustId());
+			row.createCell(0).setCellValue(I.getOrderId());
+			row.createCell(1).setCellValue(I.getOrderCode());
+			row.createCell(2).setCellValue(I.getOrderCost());
+			row.createCell(3).setCellValue(I.getiName());
+			row.createCell(4).setCellValue(I.getCustId().getCustId());
 		}
 	}
 }

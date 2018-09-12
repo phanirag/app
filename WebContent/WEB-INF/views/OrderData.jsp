@@ -32,7 +32,7 @@ table tr th {
 <td><c:out value="${l.orderCode}"/></td>
 <td><c:out value="${l.orderCost}"/></td>
 <td><c:out value="${l.iName}"/></td>
-<td><c:out value="${l.custId}"/></td>
+<td><c:out value="${l.custId.custId}"/></td>
 <td>
 	<a href="deleteOrder?OrderId=${l.orderId}">
 	 	<img  src="../images/delete.png" width="30" height="30">

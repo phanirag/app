@@ -126,7 +126,7 @@
 </style>
 </head>
 <body>
-<img src="../images/pot2.png" />
+<img src="../images/pot2.png" height="200px"/>
 <div class="navbar">
   <a href="#">Home</a>
 

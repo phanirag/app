@@ -17,9 +17,10 @@ public class Order {
 	private double orderCost;
 	@Column(name="itemNames")
 	private String iName;
-	@Column(name="custId")
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="custId")
 	@JsonIgnore
-	private int custId;
+	private Customer custId;
 	
 	public Order() {
 		super();
@@ -30,7 +31,7 @@ public class Order {
 	}
 
 	public Order(int orderId, String orderCode, double orderCost, String iName,
-			int custId) {
+			Customer custId) {
 		this.orderId = orderId;
 		this.orderCode = orderCode;
 		this.orderCost = orderCost;
@@ -70,11 +71,11 @@ public class Order {
 		this.iName = iName;
 	}
 
-	public int getCustId() {
+	public Customer getCustId() {
 		return custId;
 	}
 
-	public void setCustId(int custId) {
+	public void setCustId(Customer custId) {
 		this.custId = custId;
 	}
 

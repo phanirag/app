@@ -2,6 +2,7 @@ package com.app.provider;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
@@ -9,6 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,6 +22,9 @@ import com.app.service.IOrderService;
 import com.app.validator.CustomerValidator;
 
 @Component
+@Produces("application/json")
+@Consumes("application/json")
+@XmlRootElement
 @Path("/Order")
 public class OrderServiceProvider {
 	
@@ -63,11 +68,9 @@ public class OrderServiceProvider {
 		isValid=validator.isCustTypeConsumer(cust);
 		if(!isValid)
 			return "Customer Type is not 'Consumer' to perform this operation";
-		
-
 	
 	// 6.Link custId with Order custID
-		orderJson.setCustId(cust.getCustId());
+		orderJson.setCustId(cust);
 	
 	//	7.Save Order Object
 		int Orderid=service.saveOrder(orderJson);
@@ -78,7 +81,6 @@ public class OrderServiceProvider {
 	
 	@GET
 	@Path(value="/GetId/{id}")
-	@Produces("application/json")
 	public Response OrderSend(@PathParam("id")int id){
 		Order o=service.getOrderById(id);
 		if(o==null){
@@ -89,7 +91,6 @@ public class OrderServiceProvider {
 	
 	@GET
 	@Path(value="/GetAll")
-	@Produces("application/json")
 	public Response OrderSendAll(){
 		List<Order> o=service.getAllOrder();
 		if(o==null){

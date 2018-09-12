@@ -81,7 +81,7 @@ public class ItemServiceProvider {
 				return Response.status(Response.Status.BAD_REQUEST).build();
 
 		// 5.consider current customer is Item obj customer or link custId with ItemCustId
-			itemJson.setCustId(cust.getCustId());
+			itemJson.setCustId(cust);
 		// 6.save item object
 			@SuppressWarnings("unused")
 			int itemId=service.saveItem(itemJson);

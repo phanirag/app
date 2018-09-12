@@ -23,7 +23,7 @@
 	<bean class="com.app.view.CustomerPdfView" name="custPdfView"/>
 	<bean class="com.app.view.ItemExeclView" name="ItemExcelView"/>
 	<bean class="com.app.view.ItemPdfView" name="ItemPdfView"/>
-	
-	
+	<bean class="com.app.view.OrderExeclView" name="OrderExcelView"/>
+	<bean class="com.app.view.OrderPdfView" name="OrderPdfView"/>
 	
 </beans>	
