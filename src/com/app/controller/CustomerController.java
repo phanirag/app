@@ -42,6 +42,7 @@ public class CustomerController {
 	@Autowired
 	private ServletContext context;
 	
+	
 	@RequestMapping("/regCust")
 	public String showPage(ModelMap model){
 		model.addAttribute("customer", new Customer());

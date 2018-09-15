@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -27,6 +28,9 @@ public class UserController {
 	private CodeUtil codeUtil;
 	@Autowired
 	private CommonUtil commonutil;
+	@Autowired
+	private DriverManagerDataSource ds;
+	
 
 	@RequestMapping(value="/regUser")
 	public String showreg(ModelMap model){
@@ -69,6 +73,10 @@ public class UserController {
 	
 	@RequestMapping(value="/showLogin")
 	public String showLogin(){
+		System.out.println(ds.getUrl());
+		System.out.println(ds.getUsername());
+		System.out.println(ds.getPassword());
+		System.out.println(ds.getClass());
 		return "UserLogin";
 	}
 	
