@@ -171,5 +171,4 @@ public class ConfigClass extends WebMvcConfigurerAdapter {
     	return new LoggingAspect();
     }
     
-    	
 }

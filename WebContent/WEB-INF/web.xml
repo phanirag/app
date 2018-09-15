@@ -34,5 +34,5 @@
 	<filter-mapping>
 		<filter-name>SessionCheckFilter</filter-name>
 		<url-pattern>/mvc/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping> 
 </web-app> 

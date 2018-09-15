@@ -32,5 +32,4 @@ public class UserDaoImpl implements IUserDao {
 		}
 		return user;
 	}
-
 }

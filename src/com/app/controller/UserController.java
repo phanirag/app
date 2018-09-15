@@ -27,8 +27,7 @@ public class UserController {
 	private CodeUtil codeUtil;
 	@Autowired
 	private CommonUtil commonutil;
-	
-	
+
 	@RequestMapping(value="/regUser")
 	public String showreg(ModelMap model){
 		model.addAttribute("user",new User());
@@ -55,6 +54,7 @@ public class UserController {
 				+" or "+user.getUserContact()
 				+", and password is "+user.getUserPwd();
 		
+
 		boolean flag=commonutil.sendmail(user.getUserEmail(), "User Has been Inserted", text);
 		if(flag==true){
 			msg+="Email also send successfully";
@@ -62,6 +62,7 @@ public class UserController {
 		else{
 			msg+="Error while sending Email";
 		}
+		
 		map.addAttribute("msg",msg);
 		return "UserReg";
 	}
