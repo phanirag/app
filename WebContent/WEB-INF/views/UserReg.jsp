@@ -23,7 +23,7 @@
 </style>
 <title>User Register Page</title>
 </head>
-<body onload="onload='document.formu.userEmail.focus()'">
+<body>
 	<h1 align="center">Welcome to User Register Page!!</h1>
 	<div  id="reg-box" align="center">
 	<form:form name="formu" action="insertUser" method="POST"
