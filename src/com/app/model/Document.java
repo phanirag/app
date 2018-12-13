@@ -17,8 +17,9 @@ import javax.persistence.Table;
 public class Document {
 	@Id
 	@Column(name="fid")
-	@SequenceGenerator(name="doc",sequenceName="Doc_seq")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="doc") //Doc_seq -starts with 1000000
+	/*@SequenceGenerator(name="doc",sequenceName="Doc_seq")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="doc") //Doc_seq -starts with 1000000*/
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int fileId;
 	@Column(name="fname")
 	private String fileName;

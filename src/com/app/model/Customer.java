@@ -17,8 +17,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Customer {
 	@Id
 	@Column(name="cid")
-	@SequenceGenerator(name="cust",sequenceName="cust_seq")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="cust") //cust_seq - starts with 500000
+	//@SequenceGenerator(name="cust",sequenceName="cust_seq")
+	//@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="cust") //cust_seq - starts with 500000 which will work only for oracle
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int custId;
 	
 	@Size(min=2,max=20,message="Please Enter UserName(2-20)")

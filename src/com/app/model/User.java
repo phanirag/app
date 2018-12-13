@@ -17,8 +17,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class User {
 
 	@Id
-	@SequenceGenerator(name="usr",sequenceName="Usr_seq")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="usr") //Usr_seq - starts with 3000000
+	/*@SequenceGenerator(name="usr",sequenceName="Usr_seq")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="usr") //Usr_seq - starts with 3000000*/
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="u_Id")
 	private int userId;
 	

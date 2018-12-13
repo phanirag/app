@@ -16,8 +16,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Vendor {
 	@Id
 	@Column(name="venid")
-	@SequenceGenerator(name="ven",sequenceName="Ven_seq")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="ven") //Ven_seq - starts with 3500000
+	/*@SequenceGenerator(name="ven",sequenceName="Ven_seq")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="ven") //Ven_seq - starts with 3500000*/
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int venId;
 	
 	@NotEmpty(message="Vendor Code cannot be empty")

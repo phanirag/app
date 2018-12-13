@@ -17,8 +17,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Location {
 	@Id
 	@Column(name="lid")
-	@SequenceGenerator(name="loc",sequenceName="Loc_seq")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="loc") //Loc_seq -starts with  2000000
+	/*@SequenceGenerator(name="loc",sequenceName="Loc_seq")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="loc") //Loc_seq -starts with  2000000*/
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int locId;
 	
 	@Size(min=2,max=20,message="Please Enter UserName(2-20)")
