@@ -73,10 +73,6 @@ public class UserController {
 	
 	@RequestMapping(value="/showLogin")
 	public String showLogin(){
-		System.out.println(ds.getUrl());
-		System.out.println(ds.getUsername());
-		System.out.println(ds.getPassword());
-		System.out.println(ds.getClass());
 		return "UserLogin";
 	}
 	
